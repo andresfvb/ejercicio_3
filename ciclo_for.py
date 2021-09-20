@@ -188,3 +188,51 @@ def salario(obreros):
 
 obreros = int(input("Cuantos empleados tiene: "))
 salario(obreros)
+
+# Punto # 4--------------------------------------------------------
+
+lista_alumnos = {}
+lista_sexo = [0, 0, 0]
+
+
+def sexo(alumnos):
+    hombre = 0
+    mujer = 0
+    for alumno in range(alumnos):
+        turno = 'Alumno #' + str((alumno+1))
+        sexo = int(input(f"Que sexo es el {turno}: \n"
+                         "1. Masculino\n"
+                         "2. Femenino\n"
+                         "Digite la opción: "))
+        if (sexo == 1):
+            edad = int(input("Cuantos años tiene el alumno: "))
+            lista_sexo[0] += edad
+            sexo = 'Masculino'
+            conteo = 1
+            hombre += conteo
+        elif (sexo == 2):
+            edad = int(input("Cuantos años tiene la alumna: "))
+            lista_sexo[1] += edad
+            sexo = 'Femenino'
+            conteo = 1
+            mujer += conteo
+    print(f"Hay en total {alumnos} alumnos:\n Sacaremos el "
+          "promedio de sus edades\n"
+          "--------------------------------------------------\n")
+    for valor in range(1):
+        print(f"HOMBRES------------\n"
+              f"Edades: {lista_sexo[0]}\n"
+              f"Cantidad: {hombre}\n"
+              f"Promedio: {lista_sexo[0]/hombre}")
+        print(f"\nMUJERES------------\n"
+              f"Edades: {lista_sexo[1]}\n"
+              f"Cantidad: {mujer}\n"
+              f"Promedio: {lista_sexo[1]/mujer}")
+        print(f"\nSALON--------:"
+              f"Edades: {(lista_sexo[1]+lista_sexo[0])}\n"
+              f"Cantidad: {alumnos}\n"
+              f"Promedio: {(lista_sexo[1]+lista_sexo[0])/(alumnos)}")
+
+
+alumnos = int(input("Cuantos alumnos son: "))
+sexo(alumnos)
