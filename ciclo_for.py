@@ -258,3 +258,40 @@ for valor in range(cantidad):
     dato = float(input(f"Digite el valor del numero {(valor+1)} "))
     valores.append(dato)
 mayor(valores)
+
+# Punto #6-----------------------------------------------------------------
+
+pesos_lista = []
+
+
+def registroPesos():
+    for valor in range(3):
+        print(f'\nPERSONA #{(valor+1)}')
+        pesos_lista.append([])
+        for pos in range(3):
+            peso = float(input(f"Digite el peso de la báscula #{(pos+1)} "))
+            pesos_lista[valor].append(peso)
+    print(pesos_lista)
+
+
+def calculos():
+    peso = 0
+    for valor in range(10):
+        peso = 0
+        print(f"\nPERSONA #{(valor+1)}")
+        peso_anterior = float(input("Digite el peso de la ultima véz en kg: "))
+        for pos in range(10):
+            peso += pesos_lista[valor][pos]
+        promedio = peso/10
+        if (promedio > peso_anterior):
+            print(f'Actualmente tiene en promedio un peso de {promedio}kg\n'
+                  f'SUBIO {(promedio-peso_anterior)}kg')
+        elif (promedio < peso_anterior):
+            print(f'Actualmente tiene en promedio un peso de {promedio}\n'
+                  'BAJO {(peso_anterior-promedio)}kg')
+        else:
+            print(f"SE MANTUBO EN {promedio}")
+
+
+registroPesos()
+calculos()
