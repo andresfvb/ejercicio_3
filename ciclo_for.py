@@ -236,3 +236,25 @@ def sexo(alumnos):
 
 alumnos = int(input("Cuantos alumnos son: "))
 sexo(alumnos)
+
+# Punto #5----------------------------------------------------------------
+
+
+def mayor(valores):
+    mayor = valores[0]
+    aux = 0
+    for valor in valores:
+        aux = valor
+        if valor > mayor:
+            aux = mayor
+            mayor = valor
+        print(f"--------\n\n{mayor} es mayor {aux}\n----------")
+    print(f"\nEl mayor es {mayor}")
+
+
+cantidad = int(input("Cuantos numeros desea verificar: "))
+valores = []
+for valor in range(cantidad):
+    dato = float(input(f"Digite el valor del numero {(valor+1)} "))
+    valores.append(dato)
+mayor(valores)
