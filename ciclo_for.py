@@ -163,3 +163,28 @@ while menu != 4:
         lista_porcentaje.clear()
         edadChimpance(valor, animal)
         verificarPorcentaje(animal, valor)
+
+# Punto#3 ---------------------------------------------------------------
+
+empleados = {}
+nombre = ''
+
+
+def salario(obreros):
+    for empleado in range(obreros):
+        nombre = 'Empleado #' + str((empleado+1))
+        horas = int(input(f"Cuantas horas trabajo el {nombre}: "))
+        if (horas < 40):
+            pago = horas*20
+        elif (horas > 40):
+            horas = horas-40
+            pago = (horas*25)+(40*20)
+        empleados[nombre] = "$" + str(pago)
+    print("Este es el listado de pagos que se deben hacer:\n"
+          "--------------------------------------------------")
+    for empleado in empleados:
+        print(f"{empleado}: {empleados[empleado]}")
+
+
+obreros = int(input("Cuantos empleados tiene: "))
+salario(obreros)
