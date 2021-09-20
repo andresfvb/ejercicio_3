@@ -295,3 +295,57 @@ def calculos():
 
 registroPesos()
 calculos()
+
+# PUNTO #7---------------------------------------------------------------
+
+lista_compra = {}
+lista_compra_aux = {}
+pos = 1
+
+
+def carrito(pos):
+    nombre = input("Nombre del producto: ")
+    cantidad = int(input("Cuantos articulos son: "))
+    precio = (int(input("Cuanto vale el articulo C/u: ")))*cantidad
+
+    lista_compra[f'Producto #{pos}'] = nombre
+    lista_compra[f'Cantidad #{pos}'] = cantidad
+    lista_compra[f'Precio #{pos}'] = precio
+
+    conteo = 0
+    salto = 2
+    print("\n---------\n")
+    for llave, valor in lista_compra.items():
+        print(f"{llave} - {valor}")
+        if (conteo == salto):
+            print("\n---------\n")
+            salto = salto + 3
+        conteo = conteo+1
+
+
+def pago():
+    conteo = 0
+    salto = 2
+    total = 0
+    for llave, valor in lista_compra.items():
+        if (conteo == salto):
+            total += int(valor)
+            salto = salto + 3
+        conteo = conteo+1
+    print(f"Usted debe pagar: ${total}")
+
+
+accion = 1
+while accion != 3:
+    if (accion == 1):
+        carrito(pos)
+        pos = pos+1
+    elif (accion == 2):
+        pago()
+        accion = 3
+    else:
+        print("Dato no reconocido")
+    accion = int(input("MENU\n--------------------------------\n"
+                       "1. Comprar\n2. Ver gasto\n3. Salir\n"
+                       "Digite su opcion: "))
+pago()
